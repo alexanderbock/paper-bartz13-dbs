@@ -81,7 +81,7 @@ In recent years Microelectrode Recording (MER) has emerged as an additional tech
 
 Our interactive visualization system supports the surgical team in two ways. One, by integrating the different modalities into a unified system, we enable faster and more reliable access to necessary information. This increases the accuracy and precision of the placement and reduces the time spent during the operation. Since the patient is awake during the procedure and under a lot of physical stress, this aspect is as desirable to achieve. Two, storing all the data acquired during the operation and being able to review past operations will enable new research opportunities towards improving the patient-neutral heuristic to locate the STN.
 
-The rest of the paper is structured as follows: the next section will give a brief overview of the DBS procedure and then present the important views and techniques that were developed to create the system. Section~\ref{sec:benefits} will elaborate on the medical benefits of these techniques and relate them to the current systems. This will include an evaluation we have performed on 5 neurosurgeons. Section~\ref{sec:conclusion} will conclude the paper.
+The rest of the paper is structured as follows: the next section will give a brief overview of the DBS procedure and then present the important views and techniques that were developed to create the system. Section~\ref{sec:benefits} will elaborate on the medical benefits of these techniques, relate them to the current systems and present the results of an evaluation we have performed with the help of 5 neurosurgeons. Section~\ref{sec:conclusions} will conclude the paper.
 
 \section{System Overview}\label{sec:setup}
 \begin{figure*}[t]
@@ -91,7 +91,7 @@ The rest of the paper is structured as follows: the next section will give a bri
     \label{fig:workflow}
 \end{figure*}
 
-A DBS intervention can be divided into three subsequent phases: \emph{planning}, in which the intended target region is selected based on pre-operative scans. Much work has been done on this topic already, which is why we did not focus on this part of the procedure; \emph{recording}, in which the MER signal as well as x-ray scans are obtained (see Figure~\ref{fig:screenshot}) to gain information about the actual position of the target region; and \emph{placement}, in which the emitting electrode is inserted, the patient checks are performed, and the placement is evaluated (see also Figure~\ref{fig:workflow} for an overview of the workflow). Detailed information is available in~\cite{Bock13} and~\cite{Bock12}.
+A DBS intervention can be divided into three subsequent phases: \emph{planning}, in which the intended target region is selected based on pre-operative scans. Much work has been done on this topic already, which is why we did not focus on this part of the procedure; \emph{recording}, in which the MER signal as well as x-ray scans are obtained (see Figure~\ref{fig:screenshot}) to gain information about the actual position of the target region; and \emph{placement}, in which the emitting electrode is inserted, the patient checks are performed, and the placement is evaluated (see also Figure~\ref{fig:workflow} for an overview of the workflow). Detailed information is available in~\cite{Bock12} and~\cite{Bock13}.
 
 \noindent \textbf{Contextual View} This view, visible in the top left corner of Figure~\ref{fig:screenshot}, is used in all phases and provides the spatial registration for the surgeon. It shows the pre-operative scans, together with the intra-operative x-ray images and the analyzed MER signal.
 
@@ -99,7 +99,7 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 
 \noindent \textbf{Electrode Closeup} In this view, shown in Figure~\ref{fig:targetregion}, the area immediately around the target region is shown with all gathered information. It combines the inter-operational x-ray scans (blurred grayscale electrode), MER recording (red/green coloring on the back face), and patient checks (colored transparent spheres).
 
-\noindent \textbf{Uncertainty View} Each data source provides information about the actual location of the target region, along with an uncertainty. In this view, shown in Figure~\ref{fig:placementguide}, these probabilities and uncertainties are presented to the surgeon.
+\noindent \textbf{Uncertainty View} Each data source provides information about the actual location of the target region, along with an uncertainty. In this view, shown in Figure~\ref{fig:placementguide}, these probabilities and uncertainties are presented to the surgeon which enables him to access this information at one glance.
 
 \begin{figure}[t]
   \centering
@@ -116,7 +116,7 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 \end{figure}
 
 \section{Medical Benefits}\label{sec:benefits}
-In this section, we will elaborate on the
+
 \fix{Focus, Evaluation, no FDA approval}
 
 \section{Conclusions}\label{sec:conclusions}
