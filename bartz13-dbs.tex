@@ -104,7 +104,7 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 \begin{figure}[t]
   \centering
   \subfigure{\includegraphics[width=\columnwidth]{figures/screenshot-recording.jpg}}
-  \caption{Screenshots of our system during the recording phase. The top two views show the same view as visible during the planning phase and provide spatial context. The lower two views show the MER signal in the spatio-temporal and in the 2D temporal view.}
+  \caption{Screenshots of our system during the recording phase. The top two views show the same view as visible during the planning phase and provide spatial context. The lower two views show the MER signal in the spatio-temporal and in the 2D temporal view. \fix{Redo picture with correct orientation of 3D audio and contextual view} }
   \label{fig:screenshot}
 \end{figure}
 
@@ -116,13 +116,51 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 \end{figure}
 
 \section{Medical Benefits}\label{sec:benefits}
+\begin{figure}[t]
+  \centering
+  \fbox{\includegraphics[width=0.98\columnwidth]{figures/electrode_closeup.jpg}}
+  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when it is entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance. \fix{Redo image with lower transparency for patient checks.}}
+  \label{fig:targetregion}
+\end{figure}
 
-\fix{Focus, Evaluation, no FDA approval}
+\begin{figure}[t]
+  \centering
+  \fbox{\includegraphics[width=0.96\columnwidth]{figures/segmentation_mer_patientchecks.png}}
+  \caption{The placement guide gives a quantitative overview of measured data for potential target regions. The top figure is a combination of all data values, where as the lower figures present detailed information by showing either all values or pairwise combinations. These combinations enable the surgeon to gain further insight into the measurements in certain situations, for example, when a measurement proves unreliable during the procedure.}
+  \label{fig:placementguide}
+\end{figure}
+
+The main goal of the designed system is to support the surgeon during the DBS procedure. We achieve this by reducing the cognitive load through fusing the available modalities and thus facilitating mental registration. The current situation in the operating room is that the methods for inspecting the structural modalities, such as MRI, CT, and biplanar x-ray scans, are fairly advanced and widely used. However, the systems for recording and analyzing the MER signals and patient checks are decoupled from the other modalities. This forces the operating team to perform tasks serially, which prolongs the tiring procedure for the patient. By correlating the temporal data of the recording with the spatial orientation of the scans (Figure~\ref{fig:recordingphase:3dsound}), the surgeon is relieved of the distracting task of maintaining the position for each trajectory (for example anterior, posterior lateral central or medial) in his head. This reduces the burden of mental registration and can perform the operation faster and with greater confidence; a direct clinical benefit.
+
+The second method through which we support the electrode placement is to present all collected data in a unified way, and show it in such a way that the optimal placement location is immediately visible and the surgeon is guided towards it (see Figures~\ref{fig:targetregion} and~\ref{fig:placementguide}). The collected data consists of information about the intended target region, the MER recording, patient checks, and their associated uncertainties. Like the structural modalities and the MER signal, all this information is available in separate systems and the surgeon has to collate them in his head. Naturally, this requires concentration, which is not available for the operation. By combining all of the information about the potential, and most likely, target region, we can make the surgeon more efficient and effective. 
+
+Another, orthogonal, benefit that we try to achieve is enabling a long-term, horizontal study of the relationship between placement accuracy and the success of the operation. By storing all relevant information about the operation(for example. pre-operative and intra-operative x-ray scans, the full MER signal with the position where it was recorded, information about the patient checks) and making it possible to review the full progress of past operations, we allow medical researchers to use our system post-operatively. This, in turn, will enable them to, for example, to improve the patient-neutral heuristics to find the STN in the many cases where it is not visible on the pre-operative scans. This will hopefully lead to a direct increase in the operation's success rates.
+
+To evaluate the practicability of the proposed system we have conducted a qualitative user-study with five neurosurgeons, all of whom have extensive experience in the field and perform DBS interventions on a regular basis. The neurosurgeons were shown a showcase demonstration of the system going through all three phases (planning, recording, and placement). A demonstration was chosen, as a pre-study showed that the complexity of usage, in the current form, would result in a biased evaluation. The data for this demonstration was recorded and reconstructed from a real intervention. After the demonstration the neurosurgeons answered a questionnaire consisting of eight statements and questions, as well as a text field for arbitrary comments. Each of these statements and questions had a positive and a negative reply with no opportunity to abstain. The following table shows all statements and questions together with the number of positive answers:
+
+\noindent \begin{tabular}{p{0.875\columnwidth} c}
+\hline
+The user is not disturbed by images, colors, or animation while interacting with the system	& 4\\
+The result of any action done by the user is clearly and immediately visualized				& 4\\
+The tools provided by the system are easy to use												& 3\\
+System data is understandable and clearly visualized											& 4\\
+The actions' succession proposed by the system is logical from the user's point of view		& 5\\
+The system's features are compatible with all the user's expectations							& 4\\
+Would you like to use this system during an intervention in addition to the old system?		& 5\\
+Is the fusion of MER signals with image data useful for increasing the accuracy?				& 3\\
+\hline
+\end{tabular}
+
+\noindent \textbf{Discussion.} Overall, the feedback from the neurosurgeons was very positive. The least satisfied expert agreed with only five statements whereas the most satisfied expert agreed to all. On average the experts agreed to $6.5$ statements if we assume an equal weighting of the statements. The relatively bad score of only three positive answers to the last question seems to be the strongest drawback to the method, but considering that all of the experts would use our system in the operation room makes it a good result. One expert emphasized especially the ''correlations between target region and the neurophysiological data'' as an important aspect of the system. Only two neurosurgeons did not see the benefits of incorporating the fused views, while they still liked the overlapping view of the different probable target regions. The third question confirmed the expected usability result from the pre-study.
+
+Unfortunately, we cannot perform a full evaluation in the operating room at this point, but we would need an approval according to the EC directive or an FDA approval to be able to do that. This would allow us to perform a formal study under realistic circumstances and gain additional insight from the the surgeon at hand.
 
 \section{Conclusions}\label{sec:conclusions}
-\fix{Post-Processing for evaluation of technique}
+We have presented a visualization system that has been designed to support neurosurgeons during DBS interventions by fusing measurement data, along with their uncertainties, with structural modalities to facilitate mental registration. This multimodal information is presented to the surgeon during the intervention both in the context of the rendered imaging data, as well as a separate view showing the combination of these measurements. As the MER and patient checks are performed during DBS interventions to improve the localization of the stimulation electrode, we feed back the results of these checks into our system. When displaying and intersecting the potential target regions we take into account the different degrees of uncertainty that result from their acquisition process. This uncertainty-aware information fusion in image space, as well as in a profile plot, enables the surgeon to better assess the electrode placement and detect the optimal electrode placement. To estimate the clinical impact of the presented system we performed a qualitative evaluation with five neurosurgeons who regularly perform DBS interventions. The results indicate that the presented visualization approaches are of great interest and have the potential to improve DBS interventions.
+%
+%In the future, we would like to include the ability to efficiently review past interventions so that research correlating electrode placement and long-term effects can be conducted. Such a correlation would be very useful as it would allow to improve the currently employed patient-neutral heuristic to localize the STN.
 
-\section*{Acknowledgements}This work was partly supported by grants from the Excellence Center at Link\"oping and Lund in Information Technology (ELLIIT) and the Swedish e-Science Research Centre (SeRC), as well as VR grant 2011-4113. The presented concepts have been realized using the Voreen framework (www.voreen.org).
+\section*{Acknowledgements}We would like to thank all participants in the evaluation for their time and work. This work was partly supported by grants from the Excellence Center at Link\"oping and Lund in Information Technology (ELLIIT) and the Swedish e-Science Research Centre (SeRC), as well as VR grant 2011-4113. The presented concepts have been realized using the Voreen framework (www.voreen.org).
 
 
 %The main goal of the designed system is to support the surgeon by reducing cognitive load by fusing the available modalities and thus facilitating mental registration~\cite{Tory1998}. The current situation in the operating theater is that the methods for inspecting the structural modalities, such as MRI, CT, and biplanar x-ray scans, are fairly advanced and widely used. However, the systems for recording and analyzing the MER signals and patient checks are decoupled from the other modalities. This forces the operating team to perform tasks serially, which prolongs the tiring procedure for the patient. By integrating the temporal data of the recording in the spatial context of the scans, the surgeon is relieved of the burden of mental registration and can perform the operation faster and with greater confidence.
@@ -209,12 +247,6 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 %The contextual view introduced above is shown to maintain the surgeon's mental registration. Since the whole trajectory has been measured in the previous phase, however, all beads and all information previously acquired in the canal tube is presented independently of the electrode position. 
 
 %\subsubsection{Target Closeup}\label{sec:overview:placement:targetareaview}
-\begin{figure}[t]
-  \centering
-  \fbox{\includegraphics[width=0.98\columnwidth]{figures/electrode_closeup.jpg}}
-  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when it is entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance.}
-  \label{fig:targetregion}
-\end{figure}
 
 %The localization procedure must not only communicate the electrode's position with respect to anatomical structures, but also with regard to the intended target region. An optimal placement of the stimulation electrode should be in the intersection of the potential target regions obtained from the different measurements. We support this in-detail navigation aspect by providing a 3D visualization, which we refer to as the \emph{target closeup}, that shows the electrode embedded in the potential target regions together with the intended target region. To relate these potential target regions to the electrode and embed them into the spatial context, we additionally display the pre-operative MRI scans as a view-dependent projection on the back faces of the target closeup's bounding box. The rendering of the datasets has been made optional as, while it can provide valuable information regarding the intersection between the electrode and structures of interest, it can also occlude the potential target regions. The same orientation overlay, which is also used in the other 3D representations, is used in the electrode closeup to allow a seamless embedding of this view.
 
@@ -225,16 +257,6 @@ A DBS intervention can be divided into three subsequent phases: \emph{planning},
 %Finally, we emphasize the intersection of the displayed target regions as this intersection is the region where an optimal electrode placement would occur. We compute this intersection interactively and display it volumetrically with a green hue, the same as is used for the green-to-red MER mapping. Thus, the surgeon can verify the overlap and decide in which region to place the electrode. Furthermore, through the extent of the red region, the surgeon gets information about the mismatch between the pre-operative planning and the MER recordings. To further guide the surgeon during the electrode placement, we additionally change the color of the electrode when it penetrates the computed interaction of the potential target regions.
 
 %\subsubsection{Placement Guide}\label{sec:overview:placement:guide}
-\begin{figure}[t]
-  \centering
-  \fbox{\includegraphics[width=0.96\columnwidth]{figures/segmentation_mer_patientchecks.png}}
-%  \fbox{\includegraphics[width=0.465\columnwidth]{figures/individual.png}}
-%  \fbox{\includegraphics[width=0.465\columnwidth]{figures/segmentation_mer.png}}\\
-%  \fbox{\includegraphics[width=0.465\columnwidth]{figures/segmentation_patientchecks.png}}
-%  \fbox{\includegraphics[width=0.465\columnwidth]{figures/mer_patientchecks.png}}
-  \caption{The placement guide gives a quantitative overview of measured data for potential target regions. The top figure is a combination of all data values, where as the lower figures present detailed information by showing either all values or pairwise combinations. These combinations enable the surgeon to gain further insight into the measurements in certain situations, for example, when a measurement proves unreliable during the procedure.}
-  \label{fig:placementguide}
-\end{figure}
 
 %In addition to the spatial context, as described in the previous section, we also present the potential target regions quantitatively in a view we call the \emph{placement guide}. This view is centered on the intended target region with the access path depth on the abscissa and the likelihood of the actual target region on the ordinate. By showing the quantitative data in a line plot, the surgeon immediately sees in which areas most of the measurements agree and is guided towards that position. As we have multiple decision values for each depth value, we can combine them in different ways. In our example we chose a weighted sum, but the combination function can be freely changed according to future research. The values for uncertainty are combined in the same way and are rendered as transparent areas surrounding the line. Transparency has been shown to be a good way to convey uncertainty in other contexts~\cite{Djurcilov2002239}. With this representation the size of the transparent area immediately shows how uncertain a specific value is. This lets the surgeon see the whole set of information at one time and decide on an optimal placement position. All combined views use spline-based smoothing on the curves, which can be disabled by the user. This is done so that the surgeon is not distracted by abrupt changes in the data values which would otherwise draw unwanted attention . The current position of the electrode is shown as a bar in each of the views.
 
