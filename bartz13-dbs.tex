@@ -41,12 +41,14 @@
 \usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{caption}
 
 \newcommand{\red}[1]{{\color{red}{#1}}}
 \newcommand{\fix}[1]{\red{\emph{#1}}}
 \newcommand{\Fix}[1]{\begin{itemize} \renewcommand\labelitemi{\red{--}} \item \red{#1} \end{itemize}}
 \renewcommand{\fboxsep}{0pt}
-
+%\setlength\abovecaptionskip{0.18cm}
+\setlength\belowcaptionskip{-0.2cm}
 % For backwards compatibility to old LaTeX type font selection.
 % Uncomment if your document adheres to LaTeX2e recommendations.
 % \let\rm=\rmfamily    \let\sf=\sffamily    \let\tt=\ttfamily
@@ -68,9 +70,9 @@ $^2$Stereotactic Neurosurgery, St. Barbara Klinik, Hamm-Heessen, Germany
 \maketitle
 \begin{abstract}
 Deep Brain Stimulation (DBS) is a surgical intervention that is known to reduce or eliminate the symptoms of common movement disorders, such as Parkinson's disease, dystonia, or tremor. During a DBS intervention, stimulating electrodes are implanted into specific brain regions, whereby correct placement is crucial. As the electrode placement is based on multiple modalities, visualization can help the surgeon to mentally fuse these modalities, take into account their uncertainties and finally place the electrodes. We present a system that combines the currently unconnected information channels, derives uncertainty margins based on these modalities and communicates this information in a way which reduces the cognitive overload involved in mental registration. Thus, the presented system gives the surgical team immediate fused access to preoperative imaging data, Microelectrode Recordings, and patient feedback, which reduces the time in the operating room and increases the precision of the placed electrode. Finally, it will allow the surgeon to perform post-operation analyses to improve heuristics frequently employed during DBS interventions.
-\begin{classification}
-\CCScat{Computer Graphics}{I.3.3}{foo}{bar}
-\end{classification}
+%\begin{classification}
+%\CCScat{Computer Graphics}{I.3.3}{foo}{bar}
+%\end{classification}
 \end{abstract}
 
 \section{Introduction}\label{sec:introduction}
@@ -91,12 +93,7 @@ In the next section will give a brief overview of the DBS procedure and then pre
     \label{fig:workflow}
 \end{figure*}
 
-A DBS intervention can be divided into three subsequent phases (see Figure~\ref{fig:workflow}): \emph{planning}, in which the intended target region is selected based on pre-operative scans; \emph{recording}, in which the MER signal as well as intra-operative x-ray scans are obtained (see Figure~\ref{fig:screenshot}) to gain information about the actual position of the target region; and \emph{placement}, in which the emitting electrodes are inserted, patient checks are performed, and the placement is evaluated. Based on our experience in conducting DBS interventions, as well as in the area of medical visualization, we have developed an interactive surgery system, which support these operations. We propose
-a visualization system that fuses the different modalities: imaging
-data, MER and patient checks, as well as the related uncertainties,
-
-
-The system is based on multiple views as described below, whereby a more detailed description of the various parts can be found in~\cite{Bock12} and~\cite{Bock13}.
+A DBS intervention can be divided into three subsequent phases (see Figure~\ref{fig:workflow}): \emph{planning}, in which the intended target region is selected based on pre-operative scans; \emph{recording}, in which the MER signal as well as intra-operative x-ray scans are obtained (see Figure~\ref{fig:screenshot}) to gain information about the actual position of the target region; and \emph{placement}, in which the emitting electrodes are inserted, patient checks are performed, and the placement is evaluated. Based on our experience in conducting DBS interventions, as well as in the area of medical visualization, we have developed an interactive surgery system, which support these operations. We propose a visualization system that fuses the different modalities: imaging data, MER and patient checks, as well as the associated uncertainties. The system is based on multiple views as described below, and a more detailed description of the various parts can be found in~\cite{Bock12} and~\cite{Bock13}.
 
 \noindent \textbf{Contextual View} This view, visible in the top left corner of Figure~\ref{fig:screenshot}, is used in all phases and provides the spatial registration for the surgeon. It shows the pre-operative scans, together with the intra-operative x-ray images and the analyzed MER signal.
 
@@ -105,6 +102,9 @@ The system is based on multiple views as described below, whereby a more detaile
 \noindent \textbf{Electrode Closeup} In this view, shown in Figure~\ref{fig:targetregion}, the area immediately around the target region is shown with all gathered information. It combines the inter-operational x-ray scans (blurred grayscale electrode), MER recording (red/green coloring on the back face), and patient checks (colored transparent spheres).
 
 \noindent \textbf{Uncertainty View} Each data source provides information about the actual location of the target region, along with an uncertainty. In this view, shown in Figure~\ref{fig:placementguide}, these probabilities and uncertainties are presented to the surgeon which enables him to access this information at one glance.
+
+Presenting the uncertainties about the potential target regions is one of the key features of our system. The \emph{Electrode Closeup} enables the surgeon to qualitatively inspect possible target regions embedded in the spatial context. In contrast, the \emph{Uncertainty View} presents the quantitative aspect of the recorded data and enables the data-driven decision making.
+
 
 \begin{figure}[t]
   \centering
