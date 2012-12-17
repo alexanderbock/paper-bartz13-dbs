@@ -80,7 +80,7 @@ Deep Brain Stimulation (DBS) is a procedure for reducing the symptoms of these d
 
 In order to allow for an intuitive and accurate placement of the electrodes, it is important that the surgeon has access to all these modalities in a unified manner. Our interactive visualization system supports the surgical team in two ways. First, by integrating the different modalities into a unified system, we enable faster and more reliable access to the necessary information. This increases the accuracy and precision of the placement and reduces the time spent during the operation. Since the patient is awake during the procedure and under a lot of physical stress, this aspect is desirable to achieve. Second, by storing all the data acquired during the operation and being able to review past operations, it becomes possible to do a visual post-analysis in order to improve the patient-neutral heuristics, which are applied to locate the STN.
 
-In the next section will give a brief overview of the DBS procedure and then present the important views and techniques that were developed to create the system. Section~\ref{sec:benefits} will elaborate on the medical benefits of these techniques, relate them to the current systems and present the results of an evaluation we have performed with the help of 5 neurosurgeons. We will conclude in Section~\ref{sec:conclusions}. \fix{Sec evaluation}
+In the next section will give a brief overview of the DBS procedure and then present the important views and techniques that were developed to create the system. Section~\ref{sec:benefits} will elaborate on the medical benefits of these techniques, relate them to the current systems, while Section~\ref{sec:evaluation} will show the results of an evaluation we have performed with the help of 5 neurosurgeons. We will conclude in Section~\ref{sec:conclusions}.
 
 
 \section{System Overview}\label{sec:setup}
@@ -104,7 +104,7 @@ A DBS intervention can be divided into three subsequent phases (see Figure~\ref{
 \begin{figure}[t]
   \centering
   \subfigure{\includegraphics[width=\columnwidth]{figures/screenshot-recording.jpg}}
-  \caption{Screenshots of our system during the recording phase. The top two views show the same view as visible during the planning phase and provide spatial context. The lower two views show the MER signal in the spatio-temporal and in the 2D temporal view. \fix{Redo picture with correct orientation of 3D audio and contextual view} }
+  \caption{Screenshots of our system during the recording phase. The top two views show the same view as visible during the planning phase and provide spatial context. The lower two views show the MER signal in the spatio-temporal and in the 2D temporal view.}
   \label{fig:screenshot}
 \end{figure}
 
@@ -120,7 +120,7 @@ A DBS intervention can be divided into three subsequent phases (see Figure~\ref{
 \begin{figure}[t]
   \centering
   \fbox{\includegraphics[width=0.98\columnwidth]{figures/electrode_closeup.jpg}}
-  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when it is entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance.}
+  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when it is entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance. In addition, the x-ray scan based reconstruction of the electrodes position is shown in gray-scale.}
   \label{fig:targetregion}
 \end{figure}
 
@@ -135,14 +135,11 @@ The main goal of the designed system is to support the surgeon during the DBS pr
 
 The second method through which we support the electrode placement is to present all collected data in a unified way, and show it in such a way that the optimal placement location is immediately visible and the surgeon is guided towards it (see Figures~\ref{fig:targetregion} and~\ref{fig:placementguide}). The collected data consists of information about the intended target region, the MER recording, patient checks, and their associated uncertainties. Like the structural modalities and the MER signal, all this information is available in separate systems and the surgeon has to perform a mental registration. By combining all of the information about the potential, and most likely, target region, we can support a more efficient and effective intervention by reducing the cognitive overload inherent to the mental registration process. 
 
-Another, orthogonal, benefit of our system is, that it enables a long-term, horizontal study of the relationship between placement accuracy and the success of the operation. By storing all relevant information about the operation (e.\,g., pre-operative and intra-operative x-ray scans, the acquired MER signal, and the results of the patient checks), it becomes possible to review the full progress of past operations. This, in turn, will enable medical researchers, to improve the patient-neutral heuristics for finding the STN in the many cases where it is not visible on the pre-operative scans. This will hopefully lead to a direct overall increase in the operation's success rates.
-
-
+Another, orthogonal, benefit of our system is, that it enables a long-term, horizontal study of the relationship between placement accuracy and the success of the operation. By storing all relevant information about the operation (e.\,g., pre-operative and intra-operative x-ray scans, the acquired MER signal, and the results of the patient checks), it becomes possible to review the full progress of past operations. This, in turn, will enable medical researchers to improve the patient-neutral heuristics for finding the STN in the many cases where it is not visible on the pre-operative scans. This will hopefully lead to a direct overall increase in the operation's success rates.
 
 
 \section{System Evaluation}\label{sec:evaluation}
-
-\fix{System developed based on experience, conducting interventions since X years, fusion always problematic, post-analysis is of great interest, would be great to remove heuristics.}
+We developed our based on experience gathered by conducting DBS interventions for several years. This experience showed that fusion of different information sources is always a problematic issue during operations. In addition, post-analysis of operations is of great clinical interest as it would lead to methods to quantify the error introduced by the heuristics.
 
 To evaluate the practicability of the proposed system we have conducted a qualitative user-study with five neurosurgeons, all of whom have extensive experience in the field and perform DBS interventions on a regular basis. The neurosurgeons were shown a showcase demonstration of the system going through all three phases (planning, recording, and placement). A demonstration was chosen, as a pre-study showed that the complexity of usage, in the current form, would result in a biased evaluation. The data for this demonstration was recorded and reconstructed from a real intervention. After the demonstration the neurosurgeons answered a questionnaire consisting of eight statements and questions, as well as a text field for arbitrary comments. Each of these statements and questions had a positive and a negative reply with no opportunity to abstain. The following table shows all statements and questions together with the number of positive answers:
 
