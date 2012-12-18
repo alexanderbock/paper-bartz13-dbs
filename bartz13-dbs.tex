@@ -47,7 +47,7 @@
 \newcommand{\fix}[1]{\red{\emph{#1}}}
 \newcommand{\Fix}[1]{\begin{itemize} \renewcommand\labelitemi{\red{--}} \item \red{#1} \end{itemize}}
 \renewcommand{\fboxsep}{0pt}
-%\setlength\abovecaptionskip{0.18cm}
+\setlength\abovecaptionskip{0.18cm}
 \setlength\belowcaptionskip{-0.25cm}
 % For backwards compatibility to old LaTeX type font selection.
 % Uncomment if your document adheres to LaTeX2e recommendations.
@@ -88,7 +88,7 @@ In the next section will give a brief overview of the DBS procedure and then pre
 \section{System Overview}\label{sec:setup}
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/workflow}
+    \includegraphics[width=0.9\linewidth]{figures/workflow}
     \caption{The workflow of the proposed DBS intervention system can be divided into three phases: planning, recording and placement. To support each of these phases, we employ dedicated views that are arranged in a multiple view setup as shows in Figure~\ref{fig:screenshot}. External components interacting with our visualization system are shown for each phase.}
     \label{fig:workflow}
 \end{figure*}
@@ -125,7 +125,7 @@ Modality-based derivation and presentation of the potential target region uncert
 \begin{figure}[t]
   \centering
   \fbox{\includegraphics[width=0.98\columnwidth]{figures/electrode_closeup.jpg}}
-  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when it is entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance. In addition, the x-ray scan based reconstruction of the electrodes position is shown in gray-scale.}
+  \caption{The target closeup visualization shows the potential target regions (speech tests=blue, movement tests=purple). The spatial context provided by the MRI signal is color coded using the red-green MER region mapping. The stimulation electrode changes its color when entering the intersection of the potential target area. This view gives qualitative access to all uncertainty data fused with structural data in one glance. In addition, the x-ray scan based reconstruction of the electrode's position is shown in grayscale.}
   \label{fig:targetregion}
 \end{figure}
 
